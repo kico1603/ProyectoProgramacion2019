@@ -7,9 +7,11 @@ public class PlayerControllerFPS : MonoBehaviour
     //Desplazamiento en los ejes X y Z
     float movX;
     float movZ;
-    //rotación en el eje vertical (el FPC sólo va a rotar sobre este eje)
+   
+    //rotación en el eje vertical 
     float rotY;
     Vector3 mov;
+   
     //las velocidades de movimiento y rotación
     public float vel = 8.0f;
     public float velRot = 180.0f;
@@ -31,6 +33,7 @@ public class PlayerControllerFPS : MonoBehaviour
     private CharacterController player;
     public float gravity = 9.8f;
     public float fallVelocity;
+    public float jumpForce;
 
     // Use this for initialization
     void Start()
@@ -59,12 +62,26 @@ public class PlayerControllerFPS : MonoBehaviour
         //transform.Translate(mov);
 
         setGravity();
-       
-        
+        PlayersMovement();
+
 
         player.Move(transform.TransformDirection(mov) * Time.deltaTime);
 
         
+    }
+
+    private void PlayersMovement()
+    {
+        //Salto
+
+        if (player.isGrounded && Input.GetButtonDown("Jump"))
+        {
+            fallVelocity = jumpForce;
+            mov.y = fallVelocity;
+
+        }
+
+
     }
 
     private void setGravity()

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerInput;
     public float speed;
     public float speedMax;
+    public float jumpForce;
 
     public Camera mainCamera;
     private Vector3 camForward;
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9.8f;
     public float fallVelocity;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = new Vector3(horizntalMove, 0, verticalMove);
 
-        camDirection();
+        CamDirection();
 
         player.transform.LookAt(player.transform.position + movePlayer);
 
@@ -51,25 +52,41 @@ public class PlayerController : MonoBehaviour
 
         playerInput = Vector3.ClampMagnitude(playerInput, speedMax);
 
-        setGravity();
+        SetGravity();
+
+        PlayersMovement();
 
         player.Move(movePlayer * Time.deltaTime);
     }
 
-    private void setGravity()
+    private void PlayersMovement()
+    {
+        if (player.isGrounded && Input.GetButtonDown("Jump"))
+        {
+            fallVelocity = jumpForce;
+            movePlayer.y = fallVelocity;
+
+        }
+
+
+    }
+
+
+    private void SetGravity()
     {
         if (player.isGrounded)
         {
             fallVelocity = -gravity * Time.deltaTime;
         }
-        else { 
+        else
+        {
             fallVelocity -= gravity * Time.deltaTime;
         }
 
         movePlayer.y = fallVelocity;
     }
 
-    private void camDirection()
+    private void CamDirection()
     {
         camForward = mainCamera.transform.forward;
         camRight = mainCamera.transform.right;
