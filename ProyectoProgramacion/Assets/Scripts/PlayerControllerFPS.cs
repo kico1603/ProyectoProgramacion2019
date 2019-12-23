@@ -11,9 +11,11 @@ public class PlayerControllerFPS : MonoBehaviour
     //rotación en el eje vertical 
     float rotY;
     Vector3 mov;
-   
+
     //las velocidades de movimiento y rotación
-    public float vel = 8.0f;
+    public float velInitial = 800f;
+    public float velInRun = 1600f;
+    public float vel;
     public float velRot = 180.0f;
 
 
@@ -44,6 +46,8 @@ public class PlayerControllerFPS : MonoBehaviour
 
         //CharacterController
         player = GetComponent<CharacterController>();
+
+        vel = velInitial;
     }
 
     // Update is called once per frame
@@ -74,11 +78,19 @@ public class PlayerControllerFPS : MonoBehaviour
     {
         //Salto
 
-        if (player.isGrounded && Input.GetButtonDown("Jump"))
+        if (player.isGrounded && Input.GetButton("Jump"))
         {
             fallVelocity = jumpForce;
             mov.y = fallVelocity;
 
+        }
+
+        if (Input.GetButton("Run"))
+        {
+            vel = velInRun;
+        }
+        else {
+            vel = velInitial;
         }
 
 
