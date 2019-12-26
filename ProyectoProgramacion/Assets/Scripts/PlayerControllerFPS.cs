@@ -9,7 +9,7 @@ public class PlayerControllerFPS : MonoBehaviour
     float movZ;
    
     //rotación en el eje vertical 
-    float rotY;
+    public float rotY;
     Vector3 mov;
 
     //las velocidades de movimiento y rotación
@@ -36,6 +36,7 @@ public class PlayerControllerFPS : MonoBehaviour
     public float gravity = 9.8f;
     public float fallVelocity;
     public float jumpForce;
+    private Vector3 vecLocalScale;
 
     // Use this for initialization
     void Start()
@@ -48,6 +49,8 @@ public class PlayerControllerFPS : MonoBehaviour
         player = GetComponent<CharacterController>();
 
         vel = velInitial;
+
+        vecLocalScale = Vector3.up;
     }
 
     // Update is called once per frame
@@ -58,14 +61,22 @@ public class PlayerControllerFPS : MonoBehaviour
         mainCamera.transform.localEulerAngles = currentRot;
 
         rotY = Input.GetAxis("Mouse X") * velRot * Time.deltaTime;
+
+        if (Input.GetButton("Run"))
+            rotY = Mathf.Clamp(rotY, -0.8f, 0.8f);
+
+        if (Input.GetButton("Duck"))
+            rotY = Mathf.Clamp(rotY, -1.2f, 1.2f);
+
         transform.Rotate(0, rotY, 0);
+
         movX = Input.GetAxisRaw("Horizontal") * vel * Time.deltaTime;
         movZ = Input.GetAxisRaw("Vertical") * vel * Time.deltaTime;
         mov = new Vector3(movX, 0.0f, movZ);
         
         //transform.Translate(mov);
 
-        setGravity();
+        SetGravity();
         PlayersMovement();
 
 
@@ -74,8 +85,13 @@ public class PlayerControllerFPS : MonoBehaviour
         
     }
 
+    //Necesidad de corregir esto!!!!!!!!!!  Ahora mismo se vuelven a asignar las variables en cada frame :( Horrible, se debe poner una clase de estados y 
+    //que cada vez que se cambia acambiar no asi o por evento de tecla, ya veremos
+
     private void PlayersMovement()
     {
+        
+
         //Salto
 
         if (player.isGrounded && Input.GetButton("Jump"))
@@ -85,6 +101,7 @@ public class PlayerControllerFPS : MonoBehaviour
 
         }
 
+        //Correr
         if (Input.GetButton("Run"))
         {
             vel = velInRun;
@@ -93,10 +110,23 @@ public class PlayerControllerFPS : MonoBehaviour
             vel = velInitial;
         }
 
+        //Agacharse
+        if (Input.GetButton("Duck"))
+        {
+            vecLocalScale = transform.localScale;
+            vecLocalScale.y = 0.5f;
+            transform.localScale = vecLocalScale;
+        }
+        else
+        {
+            vecLocalScale = transform.localScale;
+            vecLocalScale.y = 1f;
+            transform.localScale = vecLocalScale;
+        }
 
     }
 
-    private void setGravity()
+    private void SetGravity()
     {
         if (player.isGrounded)
         {
