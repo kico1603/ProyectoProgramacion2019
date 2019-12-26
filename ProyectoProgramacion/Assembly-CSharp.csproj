@@ -62,7 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CamaraController.cs" />
+    <Compile Include="Assets\Scripts\GunController.cs" />
+    <Compile Include="Assets\Scripts\LaserController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerFPS.cs" />
     <Compile Include="Assets\Scripts\Scripts Recurso para personajes\CharacterControlRelativo.cs" />
@@ -70,6 +73,8 @@
     <Compile Include="Assets\Scripts\Scripts Recursos Para Camara\FollowTargetSmooth.cs" />
     <Compile Include="Assets\Scripts\Scripts Recursos Para Camara\FollowTargetSmoothOnlyRotateHorizontal.cs" />
     <Compile Include="Assets\Scripts\Scripts Recursos Para Camara\ZoomCamera.cs" />
+    <Compile Include="Assets\Scripts\SelectWeaponController.cs" />
+    <Compile Include="Assets\Scripts\ShootingManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/franc/Documents/GitHub/ProyectoProgramacion2019/ProyectoProgramacion/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
