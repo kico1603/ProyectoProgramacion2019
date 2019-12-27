@@ -8,11 +8,16 @@ public class GunController : MonoBehaviour
     public GameObject shot;
     public float fireRate;
     private float nextFire;
+    public float ammunition;
+    public float charger;
+    public float maxCharger;
+    bool shootMun;
 
 
     void Start()
     {
         nextFire = Time.time + fireRate;
+        shootMun = true;
     }
 
     // Update is called once per frame
@@ -20,9 +25,40 @@ public class GunController : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            nextFire = Time.time + fireRate;
-            GameObject instance = Instantiate(shot, transform.position, transform.rotation);
-           // instance.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+            charger--;
+            if (charger <= 0)
+            {
+                charger = 0;
+                shootMun = reload();
+            }
+            if (shootMun) { 
+                nextFire = Time.time + fireRate;
+                GameObject instance = Instantiate(shot, transform.position, transform.rotation);
+            }
+
         }
     }
+
+    public bool reload()
+    {
+        if (ammunition <= 0)
+        {
+            ammunition = 0;
+            return false;
+        }
+        else if (ammunition < maxCharger)
+        {
+            charger = ammunition;
+            ammunition = 0;
+        }
+        else
+        {
+            ammunition -= maxCharger;
+            charger = maxCharger;
+        }
+        return true;
+    }
+
+
+
 }

@@ -23,6 +23,8 @@ public class SelectWeaponController : MonoBehaviour
     // Update is called once per frame
     void avanzaArma(int cantidad)
     {
+        int auxIndex = currentIndex;
+
         currentIndex += cantidad;
 
         if (currentIndex >= armas.Length) {
@@ -33,14 +35,22 @@ public class SelectWeaponController : MonoBehaviour
         {
             currentIndex = armas.Length + currentIndex;
         }
+
+        cambiarActivarObjeto(auxIndex, currentIndex);
         cambiaArma(currentIndex);
     }
 
     void cambiaArma(int cantidad)
     {
+        
         currentIndex = cantidad;
 
         shootingManager.weaponActived = armas[currentIndex];
+    }
+
+    void cambiarActivarObjeto(int antes, int ahora) {
+        armas[antes].SetActive(false);
+        armas[ahora].SetActive(true);
     }
 
     private void Update()
