@@ -25,13 +25,18 @@ public class GunController : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            charger--;
             if (charger <= 0)
             {
                 charger = 0;
                 shootMun = reload();
             }
-            if (shootMun) { 
+            else
+            {
+                shootMun = true;
+            }
+
+            if (shootMun) {
+                charger--;
                 nextFire = Time.time + fireRate;
                 GameObject instance = Instantiate(shot, transform.position, transform.rotation);
             }

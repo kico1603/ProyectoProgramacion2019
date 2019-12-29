@@ -8,8 +8,12 @@ public class SelectWeaponController : MonoBehaviour
 {
     ShootingManager shootingManager;
     public GameObject[] armas;
+    public GameObject bazooka;
+    public GameObject amePesada;
     int currentIndex;
     float mouseIndex;
+    bool armaGrande;
+    PlayerControllerFPS player;
 
 
     // Start is called before the first frame update
@@ -18,11 +22,20 @@ public class SelectWeaponController : MonoBehaviour
         shootingManager = GetComponent<ShootingManager>();
         currentIndex = 0;
         cambiaArma(currentIndex);
+        armaGrande = false;
+        player = GetComponent<PlayerControllerFPS>();
+
     }
 
     // Update is called once per frame
     void avanzaArma(int cantidad)
     {
+        if (armaGrande) {
+            currentIndex = 0;
+            armaGrande = false;
+            player.ModeSlow(false);
+        }
+
         int auxIndex = currentIndex;
 
         currentIndex += cantidad;
@@ -35,8 +48,6 @@ public class SelectWeaponController : MonoBehaviour
         {
             currentIndex = armas.Length + currentIndex;
         }
-
-        cambiarActivarObjeto(auxIndex, currentIndex);
         cambiaArma(currentIndex);
     }
 
@@ -45,16 +56,62 @@ public class SelectWeaponController : MonoBehaviour
         
         currentIndex = cantidad;
 
+        activarSoloEstaArma(armas[currentIndex]);
         shootingManager.weaponActived = armas[currentIndex];
     }
 
-    void cambiarActivarObjeto(int antes, int ahora) {
-        armas[antes].SetActive(false);
-        armas[ahora].SetActive(true);
+    public void addBazooka() {
+
+        player.ModeSlow(true);
+        activarSoloEstaArma(bazooka);
+        shootingManager.weaponActived = bazooka;
+        armaGrande = true;
+
+    }
+
+    public void addAmePesada()
+    {
+        player.ModeSlow(true);
+        activarSoloEstaArma(amePesada);
+        shootingManager.weaponActived = amePesada;
+        armaGrande = true;
+
+    }
+
+    void activarSoloEstaArma(GameObject armaActual)
+    {
+        foreach (GameObject item in armas)
+        {
+          item.SetActive(false); 
+        }
+        bazooka.SetActive(false);
+        amePesada.SetActive(false);
+
+
+        armaActual.SetActive(true);
     }
 
     private void Update()
     {
+        float mouseIndex = Input.GetAxis("Mouse ScrollWheel");
+        if (mouseIndex > 0f)
+        {
+            avanzaArma(1);
+        }
+        else if (mouseIndex < 0f)
+        {
+            avanzaArma(-1);
+        }
+
+        if (Input.GetKey(KeyCode.F1)) {
+            addBazooka();
+        }
+
+        if (Input.GetKey(KeyCode.F2))
+        {
+            addAmePesada();
+        }
+
         // if (Input.GetKeyDown(KeyCode.UpArrow))
         // {
         //     avanzaArma(1);
@@ -68,16 +125,6 @@ public class SelectWeaponController : MonoBehaviour
         //mouseIndex = (int) Input.GetAxisRaw("Mouse ScrollWheel") * 10;
 
         // avanzaArma(mouseIndex);
-
-        float mouseIndex = Input.GetAxis("Mouse ScrollWheel");
-        if (mouseIndex > 0f)
-        {
-            avanzaArma(1);
-        }
-        else if (mouseIndex < 0f)
-        {
-            avanzaArma(-1);
-        }
     }
 
 }

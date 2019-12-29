@@ -17,7 +17,8 @@ public class PlayerControllerFPS : MonoBehaviour
     public float velInRun = 1600f;
     public float vel;
     public float velRot = 180.0f;
-
+    public bool modeSlow;
+    
 
 
     //Camera
@@ -38,6 +39,8 @@ public class PlayerControllerFPS : MonoBehaviour
     public float jumpForce;
     private Vector3 vecLocalScale;
 
+    public GameObject mele;
+
     // Use this for initialization
     void Start()
     {
@@ -49,6 +52,7 @@ public class PlayerControllerFPS : MonoBehaviour
         player = GetComponent<CharacterController>();
 
         vel = velInitial;
+        velInRun = velInitial * 2;
 
         vecLocalScale = Vector3.up;
     }
@@ -85,8 +89,6 @@ public class PlayerControllerFPS : MonoBehaviour
         
     }
 
-    //Necesidad de corregir esto!!!!!!!!!!  Ahora mismo se vuelven a asignar las variables en cada frame :( Horrible, se debe poner una clase de estados y 
-    //que cada vez que se cambia acambiar no asi o por evento de tecla, ya veremos
 
     private void PlayersMovement()
     {
@@ -102,7 +104,7 @@ public class PlayerControllerFPS : MonoBehaviour
         }
 
         //Correr
-        if (Input.GetButton("Run"))
+        if (Input.GetButton("Run") && !modeSlow)
         {
             vel = velInRun;
         }
@@ -138,5 +140,20 @@ public class PlayerControllerFPS : MonoBehaviour
         }
 
         mov.y = fallVelocity;
+    }
+
+    public void ModeSlow(bool actived) {
+        modeSlow = actived;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetButton("Melee"))
+        {
+            //HacerDañoAEnemigo
+            //other.GetComponent<DataEnemy>().addDamege(75);
+            //HacerDañoAEnemigo
+        }
+
     }
 }

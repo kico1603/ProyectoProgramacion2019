@@ -7,11 +7,12 @@ public class ShootingManager : MonoBehaviour
 
     //public GunController arma;
     public GameObject weaponActived;
+    public GameObject granades;
 
     // Start is called before the first frame update
     //void Start()
     //{
-        
+
     //}
 
     // Update is called once per frame
@@ -22,6 +23,10 @@ public class ShootingManager : MonoBehaviour
             weaponActived.SendMessage("shoot", SendMessageOptions.DontRequireReceiver);
         }
 
+        if (Input.GetButton("Granade"))
+        {
+            granades.SendMessage("shoot", SendMessageOptions.DontRequireReceiver);
+        }
 
     }
 }
