@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2454150607712324445}
   m_Layer: 0
   m_Name: SubFusil
-  m_TagString: Untagged
+  m_TagString: Subfusil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,5 +139,6 @@ MonoBehaviour:
   shot: {fileID: 4543488311550521227, guid: 79990149e71da2448a94d206da44e91e, type: 3}
   fireRate: 0.3
   ammunition: 60
+  ammunitionOriginal: 60
   charger: 25
   maxCharger: 25

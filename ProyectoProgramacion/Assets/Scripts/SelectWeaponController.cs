@@ -66,6 +66,8 @@ public class SelectWeaponController : MonoBehaviour
         activarSoloEstaArma(bazooka);
         shootingManager.weaponActived = bazooka;
         armaGrande = true;
+        GunController gunControllerBazooka = bazooka.GetComponent<GunController>();
+        gunControllerBazooka.restore();
 
     }
 
@@ -75,6 +77,8 @@ public class SelectWeaponController : MonoBehaviour
         activarSoloEstaArma(amePesada);
         shootingManager.weaponActived = amePesada;
         armaGrande = true;
+        GunController gunControllerAmePesada = amePesada.GetComponent<GunController>();
+        gunControllerAmePesada.restore();
 
     }
 

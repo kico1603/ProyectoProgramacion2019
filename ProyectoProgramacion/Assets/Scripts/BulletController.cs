@@ -38,6 +38,7 @@ public class BulletController : MonoBehaviour
         if (!death)
             rb.velocity = forward * bulletSpeed * Time.deltaTime;
     }
+    
 
     private void OnCollisionEnter(Collision collision)
     {

@@ -139,5 +139,6 @@ MonoBehaviour:
   shot: {fileID: 4543488311550521227, guid: b88ca2bf4ebe5cd4eacc063c904c7506, type: 3}
   fireRate: 2
   ammunition: 1
+  ammunitionOriginal: 1
   charger: 1
   maxCharger: 1

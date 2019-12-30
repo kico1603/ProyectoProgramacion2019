@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1773329788323049859}
   - component: {fileID: 4987615707362498868}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Granade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0863b3ed11efd82448fac08d4b1c69b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 3000
-  durationTravel: 0.1
+  bulletSpeed: 2000
+  durationTravel: 0.05
   explosion: 1
   radius: 5
   forceExplosion: 40

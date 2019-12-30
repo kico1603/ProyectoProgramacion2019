@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour
     public float fireRate;
     private float nextFire;
     public float ammunition;
+    public float ammunitionOriginal;
     public float charger;
     public float maxCharger;
     bool shootMun;
@@ -16,8 +17,9 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        nextFire = Time.time + fireRate;
+        nextFire = 0;
         shootMun = true;
+        ammunitionOriginal = ammunition;
     }
 
     // Update is called once per frame
@@ -41,6 +43,21 @@ public class GunController : MonoBehaviour
                 GameObject instance = Instantiate(shot, transform.position, transform.rotation);
             }
 
+        }
+    }
+
+    public void restore()
+    {
+        charger = maxCharger;
+        ammunition = ammunitionOriginal;
+        nextFire = 0;
+    }
+
+    public void addAmunition(float amunitionAdd) {
+        ammunition += amunitionAdd;
+
+        if (ammunition > ammunitionOriginal) {
+            ammunition = ammunitionOriginal;
         }
     }
 
