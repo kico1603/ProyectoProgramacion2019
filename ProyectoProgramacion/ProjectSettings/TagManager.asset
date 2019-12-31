@@ -8,6 +8,8 @@ TagManager:
   - Pistola
   - Subfusil
   - Granadas
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

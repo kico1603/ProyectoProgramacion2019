@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CamaraController.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\BodyColision.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyDataLife.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\HeadColision.cs" />
     <Compile Include="Assets\Scripts\GunController.cs" />
     <Compile Include="Assets\Scripts\LaserController.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionAddBazooka.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionGranadesController.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionGunController.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionSubGunController.cs" />
+    <Compile Include="Assets\Scripts\ObjectsScripts\ColisionEnemy.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerControllerFPS.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerColisionManage.cs" />

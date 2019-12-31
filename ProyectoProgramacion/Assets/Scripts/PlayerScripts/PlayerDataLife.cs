@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDataLife : MonoBehaviour
 {
     public float life;
-    private float nextFire;
+    private float nextLife;
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +16,28 @@ public class PlayerDataLife : MonoBehaviour
     public void addDamage(float damage) {
         life -= damage;
 
-        nextFire = Time.time + 6;
+        if (life <= 0)
+        {
+            death();
+        }
 
+        nextLife = Time.time + 6;
+
+    }
+
+    private void death()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextFire)
+        if (Time.time > nextLife)
         {
             if (life < 150f) {
                 life += 10;
-                nextFire = Time.time + 1;
+                nextLife = Time.time + 1;
                 if (life > 150f)
                     life = 150;
             }

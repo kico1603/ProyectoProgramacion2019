@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4a957a5c19a6a4fb57de9254364a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 4543488311550521227, guid: 79990149e71da2448a94d206da44e91e, type: 3}
+  shot: {fileID: 4543488311550521227, guid: 8acec8c2f14425b4989390a551ab2c71, type: 3}
   fireRate: 0.1
   ammunition: 0
   ammunitionOriginal: 0
