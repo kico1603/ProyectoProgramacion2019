@@ -5,18 +5,30 @@ using UnityEngine;
 public class EnemyDataLife : MonoBehaviour
 {
     public float life;
+    public bool isDeath;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+
 
     public void addDamage(float damage)
     {
         life -= damage;
         if (life <= 0) {
+            isDeath = true;
             death();
         }
     }
 
     private void death() {
 
-        Destroy(this.gameObject);
+        rb.freezeRotation = false;
+
+        Destroy(this.gameObject,4);
     }
     
 }

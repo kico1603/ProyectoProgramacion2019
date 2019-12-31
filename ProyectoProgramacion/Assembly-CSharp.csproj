@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CamaraController.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\ArmEnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\BodyColision.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyDataLife.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\HeadColision.cs" />
