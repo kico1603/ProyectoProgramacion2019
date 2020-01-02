@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\EnemyScripts\ArmEnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\BodyColision.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyDataLife.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyMele.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\HeadColision.cs" />
     <Compile Include="Assets\Scripts\GunController.cs" />
     <Compile Include="Assets\Scripts\LaserController.cs" />
@@ -77,11 +78,11 @@
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionSubGunController.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\ColisionEnemy.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerControllerFPS.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerColisionManage.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\PlayerControllerFPS.cs" />
     <Compile Include="Assets\Scripts\PlayerScripts\PlayerDataLife.cs" />
-    <Compile Include="Assets\Scripts\SelectWeaponController.cs" />
-    <Compile Include="Assets\Scripts\ShootingManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\SelectWeaponController.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\ShootingManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/franc/Documents/GitHub/ProyectoProgramacion2019/ProyectoProgramacion/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

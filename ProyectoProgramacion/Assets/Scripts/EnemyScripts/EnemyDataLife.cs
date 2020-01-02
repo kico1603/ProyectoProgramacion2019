@@ -28,7 +28,7 @@ public class EnemyDataLife : MonoBehaviour
 
         rb.freezeRotation = false;
 
-        Destroy(this.gameObject,4);
+        Destroy(this.gameObject,5);
     }
     
 }

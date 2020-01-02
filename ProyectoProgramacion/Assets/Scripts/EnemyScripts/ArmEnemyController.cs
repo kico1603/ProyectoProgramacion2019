@@ -14,6 +14,10 @@ public class ArmEnemyController : MonoBehaviour
     private float nextFire;
     EnemyDataLife enemyLife;
 
+    public float chargerMax;
+    public float secondsReload;
+    private float charger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +50,12 @@ public class ArmEnemyController : MonoBehaviour
             {
                 nextFire = Time.time + fireRate;
                 GameObject instance = Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                charger--;
+                if (charger <= 0) {
+                    charger = chargerMax;
+                    nextFire += secondsReload;
+
+                }
             }
 
         }
