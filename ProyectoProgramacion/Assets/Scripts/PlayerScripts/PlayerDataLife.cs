@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDataLife : MonoBehaviour
 {
@@ -27,7 +28,9 @@ public class PlayerDataLife : MonoBehaviour
 
     private void death()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("GameOver");
     }
 
     // Update is called once per frame

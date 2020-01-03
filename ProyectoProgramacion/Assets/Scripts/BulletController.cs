@@ -66,7 +66,7 @@ public class BulletController : MonoBehaviour
                     EnemyDataLife dataLife = col.GetComponent<EnemyDataLife>();
                     float distance = Vector3.Distance(col.transform.position, transform.position);
                     float damage = (radius * 100) / distance;
-                    Debug.Log("name " + col.name + " damage " + damage + " distance " + distance);
+                   // Debug.Log("name " + col.name + " damage " + damage + " distance " + distance);
                     dataLife.addDamage(damage);
                     
                 }

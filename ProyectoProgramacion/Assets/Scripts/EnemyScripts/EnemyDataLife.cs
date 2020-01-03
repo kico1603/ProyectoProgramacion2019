@@ -17,7 +17,7 @@ public class EnemyDataLife : MonoBehaviour
 
     public void addDamage(float damage)
     {
-        Debug.Log("name" + this.gameObject.name + " damage " + damage);
+        //Debug.Log("name" + this.gameObject.name + " damage " + damage);
         life -= damage;
         if (life <= 0) {
             isDeath = true;
