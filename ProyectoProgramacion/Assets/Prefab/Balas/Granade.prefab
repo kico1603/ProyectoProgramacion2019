@@ -113,7 +113,7 @@ MonoBehaviour:
   forceExplosion: 30
   layerEx:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 33
 --- !u!54 &4987615707362498868
 Rigidbody:
   m_ObjectHideFlags: 0

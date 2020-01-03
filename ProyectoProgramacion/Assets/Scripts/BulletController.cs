@@ -8,8 +8,8 @@ public class BulletController : MonoBehaviour
     public float durationTravel;
     private float nextFire;
     public bool explosion;
-    public float radius = 5f;
-    public float forceExplosion = 60f;
+    public float radius;
+    public float forceExplosion;
     public LayerMask layerEx;
 
 
@@ -65,7 +65,8 @@ public class BulletController : MonoBehaviour
                 if (col.tag == "Enemy") {
                     EnemyDataLife dataLife = col.GetComponent<EnemyDataLife>();
                     float distance = Vector3.Distance(col.transform.position, transform.position);
-                    float damage = (distance * 100) / radius;
+                    float damage = (radius * 100) / distance;
+                    Debug.Log("name " + col.name + " damage " + damage + " distance " + distance);
                     dataLife.addDamage(damage);
                     
                 }

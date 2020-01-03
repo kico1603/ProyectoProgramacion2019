@@ -5,18 +5,22 @@ using UnityEngine.AI;
 
 public class EnemyMele : MonoBehaviour
 {
-    public Transform target;
+    
     public float radio;
     private SphereCollider triggerCollider;
     private NavMeshAgent agent;
     private Vector3 positionOriginal;
     EnemyDataLife enemyLife;
     public bool isDeath;
-    
+
+    Transform target;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
         agent = GetComponent<NavMeshAgent>();
         triggerCollider = GetComponent<SphereCollider>();
         enemyLife = GetComponent<EnemyDataLife>();

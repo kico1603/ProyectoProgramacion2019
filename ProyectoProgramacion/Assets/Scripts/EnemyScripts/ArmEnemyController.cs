@@ -5,8 +5,7 @@ using UnityEngine;
 public class ArmEnemyController : MonoBehaviour
 {
 
-    public Transform target;
-
+   
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
@@ -16,13 +15,20 @@ public class ArmEnemyController : MonoBehaviour
 
     public float chargerMax;
     public float secondsReload;
+
     private float charger;
 
     public bool targetFound;
 
+    Transform target;
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
+
         targetFound = false;
         nextFire = Time.time + fireRate;
         enemyLife = transform.parent.gameObject.GetComponent<EnemyDataLife>();

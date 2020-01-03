@@ -29,7 +29,7 @@ public class LaserController : MonoBehaviour
         }
         else {
             laser.SetPosition(0, transform.position);
-            laser.SetPosition(1, transform.forward * 1000);
+            laser.SetPosition(1, transform.forward*1000);
         }
     }
 }
