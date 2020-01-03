@@ -64,14 +64,10 @@ public class BulletController : MonoBehaviour
             {
                 if (col.tag == "Enemy") {
                     EnemyDataLife dataLife = col.GetComponent<EnemyDataLife>();
-                    if (dataLife == null) {
-                        Debug.LogError("dataLife is NULL!!! Object " + col.name);
-
-                    } else { 
                     float distance = Vector3.Distance(col.transform.position, transform.position);
                     float damage = (distance * 100) / radius;
                     dataLife.addDamage(damage);
-                    }
+                    
                 }
                 rb.AddExplosionForce(forceExplosion, point, radius, 0.05f, ForceMode.Impulse);
             }

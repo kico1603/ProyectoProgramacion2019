@@ -18,17 +18,29 @@ public class ArmEnemyController : MonoBehaviour
     public float secondsReload;
     private float charger;
 
+    public bool targetFound;
+
     // Start is called before the first frame update
     void Start()
     {
+        targetFound = false;
         nextFire = Time.time + fireRate;
         enemyLife = transform.parent.gameObject.GetComponent<EnemyDataLife>();
+    }
+
+    public void activated() {
+        targetFound = true;
+    }
+
+    public void disabled() {
+
+        targetFound = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!enemyLife.isDeath)
+        if (targetFound && !enemyLife.isDeath)
         {
             if (target != null)
             {
@@ -51,12 +63,14 @@ public class ArmEnemyController : MonoBehaviour
                 nextFire = Time.time + fireRate;
                 GameObject instance = Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 charger--;
-                if (charger <= 0) {
+                if (charger <= 0)
+                {
                     charger = chargerMax;
                     nextFire += secondsReload;
 
                 }
             }
+
 
         }
     }

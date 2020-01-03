@@ -68,7 +68,7 @@ public class PlayerColisionManage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "EnemyBullet")
         {
             playerLife.addDamage(25);
         }

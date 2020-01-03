@@ -65,12 +65,15 @@
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CamaraController.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\ArmEnemyController.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\AtackMele.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\BodyColision.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyDataLife.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\EnemyMele.cs" />
+    <Compile Include="Assets\Scripts\EnemyScripts\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\EnemyScripts\HeadColision.cs" />
     <Compile Include="Assets\Scripts\GunController.cs" />
     <Compile Include="Assets\Scripts\LaserController.cs" />
+    <Compile Include="Assets\Scripts\ManageUI.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionAddBazooka.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionAddMachineGun.cs" />
     <Compile Include="Assets\Scripts\ObjectsScripts\AmunitionGranadesController.cs" />

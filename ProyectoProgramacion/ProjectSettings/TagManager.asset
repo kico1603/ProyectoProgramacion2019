@@ -10,6 +10,7 @@ TagManager:
   - Granadas
   - Enemy
   - Bullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

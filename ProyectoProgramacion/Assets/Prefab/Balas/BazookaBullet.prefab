@@ -110,8 +110,8 @@ MonoBehaviour:
   bulletSpeed: 3000
   durationTravel: 10
   explosion: 1
-  radius: 10
-  forceExplosion: 80
+  radius: 8
+  forceExplosion: 50
   layerEx:
     serializedVersion: 2
     m_Bits: 4294967295

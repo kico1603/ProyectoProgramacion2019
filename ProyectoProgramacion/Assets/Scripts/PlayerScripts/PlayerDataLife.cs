@@ -43,10 +43,7 @@ public class PlayerDataLife : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            addDamage(30);
-        }
+        
     }
 
 

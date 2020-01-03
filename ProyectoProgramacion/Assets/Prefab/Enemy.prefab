@@ -142,6 +142,7 @@ MonoBehaviour:
   fireRate: 1
   chargerMax: 30
   secondsReload: 3
+  targetFound: 0
 --- !u!1 &1075374711217878647
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +214,8 @@ GameObject:
   - component: {fileID: 1075374712234985533}
   - component: {fileID: 1075374712234985473}
   - component: {fileID: 1075374712234985474}
+  - component: {fileID: 517924641}
+  - component: {fileID: 517924640}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -319,7 +322,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075374712234985532}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -327,6 +330,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &517924641
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075374712234985532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &517924640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075374712234985532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46d0981132680946927d2565c2d0fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radio: 40
+  arma: {fileID: 663458433}
 --- !u!1 &1075374712358577253
 GameObject:
   m_ObjectHideFlags: 0
